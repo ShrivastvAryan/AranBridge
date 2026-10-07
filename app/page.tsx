@@ -1,0 +1,63 @@
+import type { Metadata } from "next";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "AranBridge | Verified Donor Coordination",
+  description: "A centre-led coordination platform designed to help licensed blood centres reach appropriate, opted-in local donors faster.",
+};
+
+const shell = "mx-auto w-[min(1180px,calc(100%-48px))]";
+const eyebrow = "mb-10 border-b border-stone-300 pb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-red-700";
+const display = "font-serif text-5xl leading-[0.98] tracking-[-0.055em] text-stone-900 sm:text-6xl lg:text-7xl";
+
+const proofPoints = [
+  ["Centre-led", "Licensed blood centres retain clinical authority and control request closure."],
+  ["Consent-based", "Only opted-in donors receive relevant, locality-aware alerts."],
+  ["Measurable", "Every pilot is designed around response quality, speed, and centre-confirmed completion."],
+];
+
+const milestones = [
+  ["Now", "Validate one operating unit", "1 licensed centre · 2–3 local communities", "Workflow and partner validation"],
+  ["Next", "Launch the Delhi pilot", "3–5 centres · repeatable playbook", "Product and unit-economics validation"],
+  ["Then", "Build a city operating network", "Zone-by-zone coverage", "Repeatability and retention validation"],
+  ["Later", "Expand through local partners", "New cities with accountable operators", "Responsible replication"],
+];
+
+const investorFocus = [
+  ["Pilot conversion", "Secure a limited pilot with a licensed centre and document the baseline workflow."],
+  ["Response quality", "Measure time to qualified interest and centre-confirmed donation completion."],
+  ["Repeatability", "Demonstrate that the operating model can be deployed across additional local zones."],
+  ["Trust infrastructure", "Build the audit, consent, and verification primitives that make expansion credible."],
+];
+
+export default function Home() {
+  return (
+    <main className="overflow-hidden bg-[#f4f0e8] text-stone-900">
+      <nav className={`${shell} flex h-[88px] items-center justify-between border-b border-stone-300`} aria-label="Primary navigation">
+        <a className="flex items-center gap-3 text-xl font-extrabold tracking-tight" href="#top"><span className="grid size-9 rotate-[-8deg] place-items-center rounded-[50%_50%_50%_8px] bg-red-700 font-serif text-lg text-white">A</span>AranBridge</a>
+        <div className="flex items-center gap-6 text-sm font-semibold"><a className="hidden hover:text-red-700 md:block" href="#model">Model</a><a className="hidden hover:text-red-700 md:block" href="#milestones">Milestones</a><a className="hidden hover:text-red-700 md:block" href="#investors">Investor brief</a></div>
+      </nav>
+
+      <section className={`${shell} grid items-center gap-14 py-20 lg:grid-cols-[1.12fr_.88fr] lg:gap-20 lg:py-24`} id="top">
+        <div><p className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em]"><span className="size-2 rounded-full bg-red-700 ring-4 ring-red-700/10" />Pre-seed · Delhi · Pilot preparation</p><h1 className="mt-8 max-w-3xl font-serif text-6xl leading-[0.92] tracking-[-0.06em] sm:text-7xl lg:text-[5.5rem]">Verified coordination for <em className="font-normal text-red-700">time-critical</em> donor access.</h1><p className="mt-8 max-w-2xl text-lg leading-8 text-stone-600">AranBridge is building coordination infrastructure for licensed blood centres-helping them reach relevant, opted-in local donors through a workflow designed for privacy, accountability, and clinical control.</p><div className="mt-8 flex flex-wrap gap-3"><Button href="#investors" size="lg">View the investment case <span>↘</span></Button><Button href="#model" variant="secondary" size="lg">Explore the model</Button></div><p className="mt-5 text-xs text-stone-500">No blood sales. No public donor directory. No eligibility promises.</p></div>
+        <Card className="rotate-1 border-stone-800 bg-stone-900 text-white shadow-[18px_18px_0_#ddd5c8]"><CardHeader className="flex-row items-start justify-between border-b border-white/15 p-6"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-stone-400">Operating thesis</p><h2 className="mt-2 font-serif text-3xl">Trust before scale</h2></div><Badge variant="dark"><span className="mr-2 inline-block size-1.5 rounded-full bg-amber-400" />Pre-pilot</Badge></CardHeader><CardContent className="p-6"><ol className="divide-y divide-white/10">{[["Verified source", "A licensed centre creates a time-bound request", "Accountable"], ["Targeted coordination", "Relevant donors receive a consent-based alert", "Private"], ["Clinical confirmation", "Screening and closure remain with the centre", "Centre-led"]].map(([title, text, tag], index) => <li className="grid grid-cols-[28px_1fr_auto] items-center gap-3 py-5" key={title}><span className="font-serif text-stone-500">0{index + 1}</span><div><strong className="block text-sm">{title}</strong><small className="text-[11px] text-stone-400">{text}</small></div><Badge variant="dark" className="hidden sm:inline-flex">{tag}</Badge></li>)}</ol><div className="mt-3 border-t border-white/10 pt-5 text-[10px] font-bold uppercase tracking-[0.13em] text-stone-400">Designed to validate one accountable local operating unit</div></CardContent></Card>
+      </section>
+
+      <section className="border-y border-stone-300 bg-[#fffdfa]"><div className={`${shell} grid gap-8 py-8 sm:grid-cols-3`}><div><strong className="block font-serif text-3xl font-normal">1</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-stone-500">Initial Delhi zone</span></div><div className="border-stone-300 sm:border-x sm:px-8"><strong className="block font-serif text-3xl font-normal">1</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-stone-500">Licensed pilot partner target</span></div><div><strong className="block font-serif text-3xl font-normal">4</strong><span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.12em] text-stone-500">Core pilot proof points</span></div></div></section>
+
+      <section className={`${shell} py-24 lg:py-32`} id="model"><p className={eyebrow}>01 / The investment premise</p><div className="grid gap-16 lg:grid-cols-[.9fr_1.1fr] lg:gap-24"><div><h2 className={display}>Urgent need.<br /><em className="font-normal text-red-700">Fragmented coordination.</em></h2><p className="mt-8 max-w-xl text-[17px] leading-8 text-stone-600">The gap is not clinical judgement—it is the time-sensitive coordination between a verified request and appropriate voluntary donor response. AranBridge tests whether a trusted, centre-led layer can make that chain more reliable and measurable.</p></div><div className="divide-y divide-stone-300 border-t border-stone-300">{proofPoints.map(([title, text], index) => <article className="grid grid-cols-[40px_1fr] gap-5 py-7" key={title}><span className="font-serif text-red-700">0{index + 1}</span><div><h3 className="font-serif text-2xl">{title}</h3><p className="mt-2 text-sm leading-6 text-stone-600">{text}</p></div></article>)}</div></div></section>
+
+      <section className="bg-stone-900 py-24 text-white lg:py-32" id="milestones"><div className={shell}><p className="mb-12 border-b border-white/15 pb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-red-300">02 / Validation roadmap</p><div className="mb-16 flex flex-col justify-between gap-6 lg:flex-row lg:items-end"><h2 className="font-serif text-5xl leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">Build evidence.<br /><em className="font-normal text-red-400">Then earn scale.</em></h2><p className="max-w-md text-[17px] leading-8 text-stone-400">The plan is deliberately capital-efficient: validate the workflow with partners first, then convert proven operating steps into product infrastructure.</p></div><div className="grid border-l border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">{milestones.map(([phase, title, detail, note], index) => <article className={`min-h-64 border-b border-r border-white/15 p-7 ${index === 0 ? "bg-red-700" : ""}`} key={phase}><span className={`text-[10px] font-bold uppercase tracking-[0.15em] ${index === 0 ? "text-red-100" : "text-red-300"}`}>{phase}</span><h3 className="mt-7 font-serif text-2xl">{title}</h3><p className={`mt-3 text-sm leading-6 ${index === 0 ? "text-red-100" : "text-stone-400"}`}>{detail}</p><p className={`mt-8 text-[10px] font-bold uppercase tracking-[0.1em] ${index === 0 ? "text-white" : "text-stone-300"}`}>{note}</p></article>)}</div></div></section>
+
+      <section className={`${shell} py-24 lg:py-32`} id="investors"><p className={eyebrow}>03 / Investor brief</p><div className="grid gap-16 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><h2 className={display}>What we intend to <em className="font-normal text-red-700">prove.</em></h2><p className="mt-8 max-w-sm text-[17px] leading-8 text-stone-600">We are not presenting vanity metrics as traction. The next phase is focused on generating the operational evidence required to support a credible scale thesis.</p><div className="mt-8 border-l-2 border-red-700 pl-5 text-sm leading-6 text-stone-600">Initial capital supports partner discovery, pilot operations, secure workflow design, and measurement infrastructure.</div></div><div className="divide-y divide-stone-300 border-t border-stone-300">{investorFocus.map(([title, text], index) => <article className="grid grid-cols-[34px_1fr] gap-5 py-6 sm:grid-cols-[44px_1fr]" key={title}><span className="font-serif text-red-700">0{index + 1}</span><div><h3 className="font-serif text-2xl">{title}</h3><p className="mt-2 max-w-xl text-sm leading-6 text-stone-600">{text}</p></div></article>)}</div></div></section>
+
+      <section className="bg-[#e5ded2] py-24 lg:py-32"><div className={shell}><p className={eyebrow}>04 / Why the model can compound</p><div className="grid gap-12 lg:grid-cols-3"><div><h2 className="font-serif text-4xl tracking-[-0.045em] sm:text-5xl">A verified request system</h2><p className="mt-5 leading-7 text-stone-600">Creates a trusted source of operational truth for every request, response, and closure.</p></div><div><h2 className="font-serif text-4xl tracking-[-0.045em] sm:text-5xl">A repeatable local playbook</h2><p className="mt-5 leading-7 text-stone-600">Pairs one licensed centre with nearby communities and a consistent accountability loop.</p></div><div><h2 className="font-serif text-4xl tracking-[-0.045em] sm:text-5xl">A disciplined expansion logic</h2><p className="mt-5 leading-7 text-stone-600">Each new zone advances only after response quality, partner engagement, and donor willingness are proven.</p></div></div></div></section>
+
+      <section className={`${shell} my-20 grid gap-10 rounded-md bg-red-700 p-8 text-white sm:p-12 lg:my-28 lg:grid-cols-[1.35fr_.65fr] lg:items-end lg:p-16`} id="contact"><div><p className="text-[10px] font-bold uppercase tracking-[0.16em] text-red-100">Pre-seed conversations</p><h2 className="mt-6 font-serif text-5xl leading-none tracking-[-0.045em] sm:text-6xl">Back a more accountable path from verified need to voluntary donor response.</h2><p className="mt-6 max-w-2xl leading-7 text-red-100">We are seeking early partners and investors who value responsible healthcare infrastructure, disciplined validation, and operational depth.</p></div><div><Button href="#top" variant="light" size="lg">Request the investor brief <span>↑</span></Button><p className="mt-5 text-xs leading-5 text-red-100">Pilot-stage opportunity<br />Delhi, India</p></div></section>
+
+      <footer className="bg-stone-900 py-14 text-white"><div className={`${shell} grid gap-8 border-b border-white/15 pb-10 md:grid-cols-[1fr_1.2fr_1fr]`}><a className="flex items-center gap-3 text-xl font-extrabold tracking-tight" href="#top"><span className="grid size-9 rotate-[-8deg] place-items-center rounded-[50%_50%_50%_8px] bg-red-700 font-serif text-lg text-white">A</span>AranBridge</a><p className="font-serif text-lg italic leading-7 text-stone-400">Coordination infrastructure for verified need and voluntary donor response.</p><div className="flex gap-4 text-[10px] font-bold uppercase tracking-[0.12em] text-stone-400 md:justify-end"><span>Delhi, India</span><span>Pre-seed · 2026</span></div></div><p className={`${shell} mt-6 text-[10px] leading-5 text-stone-500`}>AranBridge is an early-stage coordination concept, not a blood bank or medical service. Donor eligibility and all clinical decisions remain with licensed blood centres.</p></footer>
+    </main>
+  );
+}
